@@ -1,0 +1,343 @@
+about:
+  date: October 30, 2024 14:29:13
+  recent_changes: works with modified safrs-react-admin
+  version: 0.0.0
+api_root: '{http_type}://{swagger_host}:{port}/{api}'
+authentication: '{system-default}'
+info:
+  number_relationships: 10
+  number_tables: 12
+info_toggle_checked: true
+resources:
+  Customer:
+    attributes:
+    - label: ' name*'
+      name: name
+      search: true
+      sort: true
+    - name: email
+    - name: phone
+    - name: balance
+      required: true
+    - name: credit_limit
+      required: true
+    - name: id
+    description: Represents a customer in the space flower shop.
+    info_list: Represents a customer in the space flower shop.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - customer_id
+      name: CustomerAddressList
+      resource: CustomerAddress
+    - direction: tomany
+      fks:
+      - customer_id
+      name: OrderList
+      resource: Order
+    - direction: tomany
+      fks:
+      - customer_id
+      name: ReviewList
+      resource: Review
+    type: Customer
+    user_key: name
+  CustomerAddress:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: customer_id
+      required: true
+    - name: address_line
+    - name: city
+    - name: postal_code
+    description: Represents the addresses of customers.
+    info_list: Represents the addresses of customers.
+    tab_groups:
+    - direction: toone
+      fks:
+      - customer_id
+      name: customer
+      resource: Customer
+    type: CustomerAddress
+    user_key: id
+  Delivery:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: order_id
+      required: true
+    - name: delivery_date
+      type: DATETIME
+    - name: status
+    description: Information about the delivery orders.
+    info_list: Information about the delivery orders.
+    tab_groups:
+    - direction: toone
+      fks:
+      - order_id
+      name: order
+      resource: Order
+    type: Delivery
+    user_key: id
+  Employee:
+    attributes:
+    - label: ' name*'
+      name: name
+      search: true
+      sort: true
+    - name: role
+    - name: hire_date
+      type: DATETIME
+    - name: id
+    description: Represents an employee of the flower shop.
+    info_list: Represents an employee of the flower shop.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - employee_id
+      name: ScheduleList
+      resource: Schedule
+    type: Employee
+    user_key: name
+  Item:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: order_id
+      required: true
+    - name: product_id
+      required: true
+    - name: quantity
+      required: true
+    - name: amount
+      required: true
+    description: Represents an item in an order.
+    info_list: Represents an item in an order.
+    tab_groups:
+    - direction: toone
+      fks:
+      - order_id
+      name: order
+      resource: Order
+    - direction: toone
+      fks:
+      - product_id
+      name: product
+      resource: Product
+    type: Item
+    user_key: id
+  Order:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: customer_id
+      required: true
+    - name: order_date
+      type: DATETIME
+    - name: status
+    - name: amount_total
+      required: true
+    description: Represents an order made by a customer.
+    info_list: Represents an order made by a customer.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - order_id
+      name: DeliveryList
+      resource: Delivery
+    - direction: tomany
+      fks:
+      - order_id
+      name: ItemList
+      resource: Item
+    - direction: toone
+      fks:
+      - customer_id
+      name: customer
+      resource: Customer
+    type: Order
+    user_key: id
+  Product:
+    attributes:
+    - label: ' name*'
+      name: name
+      search: true
+      sort: true
+    - name: category
+    - name: color
+    - name: unit_price
+    - name: id
+    description: Represents a flower product available for sale.
+    info_list: Represents a flower product available for sale.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - product_id
+      name: ItemList
+      resource: Item
+    - direction: tomany
+      fks:
+      - product_id
+      name: ReviewList
+      resource: Review
+    - direction: tomany
+      fks:
+      - product_id
+      name: SupplyList
+      resource: Supply
+    type: Product
+    user_key: name
+  Promotion:
+    attributes:
+    - label: ' name*'
+      name: name
+      search: true
+      sort: true
+    - name: start_date
+      type: DATETIME
+    - name: end_date
+      type: DATETIME
+    - name: discount_percentage
+      required: true
+    - name: id
+    description: Represents promotional events for products.
+    info_list: Represents promotional events for products.
+    type: Promotion
+    user_key: name
+  Review:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: customer_id
+      required: true
+    - name: product_id
+      required: true
+    - name: review_date
+      type: DATETIME
+    - name: rating
+    - name: comment
+    description: Customer reviews for products.
+    info_list: Customer reviews for products.
+    tab_groups:
+    - direction: toone
+      fks:
+      - customer_id
+      name: customer
+      resource: Customer
+    - direction: toone
+      fks:
+      - product_id
+      name: product
+      resource: Product
+    type: Review
+    user_key: id
+  Schedule:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: employee_id
+      required: true
+    - name: day
+    - name: start_time
+    - name: end_time
+    description: Represents the work schedule of employees.
+    info_list: Represents the work schedule of employees.
+    tab_groups:
+    - direction: toone
+      fks:
+      - employee_id
+      name: employee
+      resource: Employee
+    type: Schedule
+    user_key: id
+  Supplier:
+    attributes:
+    - label: ' name*'
+      name: name
+      search: true
+      sort: true
+    - name: contact_info
+    - name: id
+    description: Represents a supplier who provides flowers.
+    info_list: Represents a supplier who provides flowers.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - supplier_id
+      name: SupplyList
+      resource: Supply
+    type: Supplier
+    user_key: name
+  Supply:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: product_id
+      required: true
+    - name: supplier_id
+      required: true
+    - name: supply_date
+      type: DATETIME
+    - name: quantity
+      required: true
+    description: Tracks the supply of products from suppliers.
+    info_list: Tracks the supply of products from suppliers.
+    tab_groups:
+    - direction: toone
+      fks:
+      - product_id
+      name: product
+      resource: Product
+    - direction: toone
+      fks:
+      - supplier_id
+      name: supplier
+      resource: Supplier
+    type: Supply
+    user_key: id
+settings:
+  HomeJS: /admin-app/home.js
+  max_list_columns: 8
+  style_guide:
+    applicationLocales:
+    - en
+    - es
+    currency_symbol: $
+    currency_symbol_position: left
+    date_format: LL
+    decimal_max: '1000000000'
+    decimal_min: '0'
+    decimal_separator: .
+    detail_mode: tab
+    edit_on_mode: dblclick
+    exclude_listpicker: false
+    include_translation: 'false'
+    keycloak_client_id: alsclient
+    keycloak_realm: kcals
+    keycloak_url: http://localhost:8080
+    locale: en
+    max_decimal_digits: '4'
+    min_decimal_digits: '2'
+    new_mode: dialog
+    pick_style: list
+    row_height: small,
+    serviceType: OntimizeEE
+    startSessionPath: /auth/login
+    style: light
+    thousand_separator: ','
+    use_keycloak: 'false'

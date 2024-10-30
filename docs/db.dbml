@@ -1,0 +1,128 @@
+// Copy this text, paste to https://dbdiagram.io/d
+// Or, https://databasediagram.com/app
+// Or, view in VSCode with extension: "DBML Live Preview"
+
+Project DBML {
+  Note: '''
+Customer: Represents a customer in the space flower shop.
+CustomerAddress: Represents the addresses of customers.
+Delivery: Information about the delivery orders.
+Order: Represents an order made by a customer.
+Employee: Represents an employee of the flower shop.
+Item: Represents an item in an order.
+Product: Represents a flower product available for sale.
+Promotion: Represents promotional events for products.
+Review: Customer reviews for products.
+Schedule: Represents the work schedule of employees.
+Supplier: Represents a supplier who provides flowers.
+Supply: Tracks the supply of products from suppliers.
+'''
+}
+
+Table Customer {
+    id INTEGER [primary key]
+    name VARCHAR 
+    email VARCHAR 
+    phone VARCHAR 
+    balance FLOAT 
+    credit_limit FLOAT 
+    }
+
+Table CustomerAddress {
+    id INTEGER [primary key]
+    customer_id INTEGER 
+    address_line VARCHAR 
+    city VARCHAR 
+    postal_code VARCHAR 
+    }
+
+Table Delivery {
+    id INTEGER [primary key]
+    order_id INTEGER 
+    delivery_date DATETIME 
+    status VARCHAR 
+    }
+
+Table Order {
+    id INTEGER [primary key]
+    customer_id INTEGER 
+    order_date DATETIME 
+    status VARCHAR 
+    amount_total FLOAT 
+    }
+
+Table Employee {
+    id INTEGER [primary key]
+    name VARCHAR 
+    role VARCHAR 
+    hire_date DATETIME 
+    }
+
+Table Item {
+    id INTEGER [primary key]
+    order_id INTEGER 
+    product_id INTEGER 
+    quantity INTEGER 
+    amount FLOAT 
+    }
+
+Table Product {
+    id INTEGER [primary key]
+    name VARCHAR 
+    category VARCHAR 
+    color VARCHAR 
+    unit_price FLOAT 
+    }
+
+Table Promotion {
+    id INTEGER [primary key]
+    name VARCHAR 
+    start_date DATETIME 
+    end_date DATETIME 
+    discount_percentage FLOAT 
+    }
+
+Table Review {
+    id INTEGER [primary key]
+    customer_id INTEGER 
+    product_id INTEGER 
+    review_date DATETIME 
+    rating INTEGER 
+    comment VARCHAR 
+    }
+
+Table Schedule {
+    id INTEGER [primary key]
+    employee_id INTEGER 
+    day VARCHAR 
+    start_time VARCHAR 
+    end_time VARCHAR 
+    }
+
+Table Supplier {
+    id INTEGER [primary key]
+    name VARCHAR 
+    contact_info VARCHAR 
+    }
+
+Table Supply {
+    id INTEGER [primary key]
+    supplier_id INTEGER 
+    product_id INTEGER 
+    supply_date DATETIME 
+    quantity INTEGER 
+    }
+
+
+
+// Relationships
+    Ref: CustomerAddress.(customer_id) < Customer.(id)
+    Ref: Delivery.(order_id) < Order.(id)
+    Ref: Order.(customer_id) < Customer.(id)
+    Ref: Item.(order_id) < Order.(id)
+    Ref: Item.(product_id) < Product.(id)
+    Ref: Review.(customer_id) < Customer.(id)
+    Ref: Review.(product_id) < Product.(id)
+    Ref: Schedule.(employee_id) < Employee.(id)
+    Ref: Supply.(product_id) < Product.(id)
+    Ref: Supply.(supplier_id) < Supplier.(id)

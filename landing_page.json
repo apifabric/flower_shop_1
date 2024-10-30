@@ -1,0 +1,121 @@
+{
+    "name": "Space Flower Shop",
+    "logo": {
+        "Type": "Logo",
+        "name": "Space Flower Shop Logo",
+        "description": "A logo featuring a whimsical space-themed design with flowers orbiting a planet."
+    },
+    "sections": [
+        {
+            "title": "Welcome to the Cosmos of Flowers",
+            "subtitle": "Explore Blossoms Beyond the Earth",
+            "name": "hero",
+            "label": "Home",
+            "content": "## Discover the Cosmic Beauty  \nUnveil the enchanting universe of floral arrangements with Space Flower Shop. Our creations are inspired by the cosmos, bringing a touch of celestial elegance to your surroundings.",
+            "order": 1,
+            "Type": "Hero",
+            "images": [
+                {
+                    "Type": "Hero",
+                    "name": "Florals in Space",
+                    "description": "A mesmerizing image of flowers beautifully crafted with a space-themed background."
+                }
+            ]
+        },
+        {
+            "title": "About Us",
+            "subtitle": "Journey through Our Story",
+            "name": "about",
+            "label": "About",
+            "content": "### From Starry Dreams to Blooming Realities  \nAt Space Flower Shop, we believe in the transformative power of flowers. Founded by astro-botanists, our mission is to blend the beauty of flora with the wonders of the universe, curating celestial bouquets for every occasion.",
+            "order": 2,
+            "Type": "About",
+            "images": [
+                {
+                    "Type": "Infographic",
+                    "name": "Mission Visual",
+                    "description": "An infographic depicting the journey of our floral inspirations from earth to the stars."
+                }
+            ]
+        },
+        {
+            "title": "Our Galactic Services",
+            "subtitle": "Celestial Arrangements for Every Occasion",
+            "name": "services",
+            "label": "Services",
+            "content": "### Services We Offer  \n- **Interstellar Bouquets**: Out-of-this-world floral designs for weddings, celebrations, and more.\n- **Cosmic Home Decor**: Transform your living space with our space-themed floral installations.\n- **Corporate Celestial Arrangements**: Elevate your corporate events with our distinctive floral works.",
+            "order": 3,
+            "Type": "Services",
+            "images": [
+                {
+                    "Type": "ItemListing",
+                    "name": "Interstellar Bouquet",
+                    "description": "A bouquet with an array of exotic flowers, inspired by the colors of distant galaxies."
+                },
+                {
+                    "Type": "ItemListing",
+                    "name": "Cosmic Decor",
+                    "description": "An artistic installation of florals, capturing the essence of space."
+                }
+            ]
+        },
+        {
+            "title": "Customer Testimonials",
+            "subtitle": "Voices from the Stars",
+            "name": "testimonials",
+            "label": "Testimonials",
+            "content": "### What Our Clients Say  \n- \u201cThe Space Flower Shop turned our wedding into a galactic marvel!\u201d - *Anna & Mark*\n- \u201cTheir floral art has transformed our office space into a haven of creativity.\u201d - *TechCorp Ltd.*",
+            "order": 4,
+            "Type": "Testimonials",
+            "images": [
+                {
+                    "Type": "Testimonial",
+                    "name": "Happy Couple",
+                    "description": "A photo of a couple at their space-themed wedding."
+                },
+                {
+                    "Type": "Testimonial",
+                    "name": "Corporate Event",
+                    "description": "A corporate event with our unique floral decorations."
+                }
+            ]
+        },
+        {
+            "title": "Our Cosmic Collection",
+            "subtitle": "Gallery of Celestial Creations",
+            "name": "gallery",
+            "label": "Gallery",
+            "content": "### Step into Our Floral Galaxy  \nBehold the artistry of our arrangements, each crafted to convey the tranquility and wonder of space.",
+            "order": 5,
+            "Type": "Gallery",
+            "images": [
+                {
+                    "Type": "Gallery",
+                    "name": "Celestial Centerpieces",
+                    "description": "Photos of stunning centerpieces inspired by planetary formations."
+                },
+                {
+                    "Type": "Gallery",
+                    "name": "Bouquet of Stars",
+                    "description": "A bouquet showcasing rare flowers with iridescent tones."
+                }
+            ]
+        },
+        {
+            "title": "Get in Touch",
+            "subtitle": "Start Your Floral Journey",
+            "name": "contact",
+            "label": "Contact",
+            "content": "### Contact Us  \nWhether you're planning an event or want to adorn your space, reach out to us.  \n- **Email**: hello@spaceflowershop.com  \n- **Phone**: +(123) 456-7890  \n- **Visit us**: 123 Galaxy Lane, Cosmos City, Earth",
+            "order": 6,
+            "Type": "Contact",
+            "images": [
+                {
+                    "Type": "Map",
+                    "name": "Shop Location",
+                    "description": "A map highlighting the location of Space Flower Shop."
+                }
+            ]
+        }
+    ]
+}
